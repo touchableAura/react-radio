@@ -18,12 +18,13 @@
 }
 
 .btns-container {
-  width: 700px;
+  width: 800px;
   height: 25vh;
   padding: 2vh;
   border: 1px rgb(0, 0, 0) solid;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 10px; /* Adjust the gap between buttons */
   background-color: #171717;
 }

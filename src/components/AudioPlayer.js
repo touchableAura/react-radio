@@ -49,7 +49,7 @@ const AudioPlayer = () => {
             onClick={() => handleButtonClick(stream, index)}
             style={{
               backgroundColor:
-                currentStreamIndex === index && isPlaying ? "green" : "grey",
+                currentStreamIndex === index && isPlaying ? "darkred" : "black",
               color: "white",
               padding: "10px",
             }}

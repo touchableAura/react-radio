@@ -16,7 +16,7 @@ function App() {
         <VideoScreen />
         {/* <AudioControls currentStation={currentStation} /> */}
         <AudioPlayer setCurrentStation={setCurrentStation} />
-        <AudioAbout />
+        
       </div>
       <Speaker />
     </div>

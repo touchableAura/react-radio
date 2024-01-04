@@ -7,7 +7,7 @@ const AudioPlayer = () => {
   const [currentStreamIndex, setCurrentStreamIndex] = useState(null);
   const [currentStation, setCurrentStation] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [volume, setVolume] = useState(0.5);
+
 
   const streams = [
     { id: 1, title: "CKDU", url: "https://archive1.ckdu.ca:9750/ckdu_1_on_air_low.mp3", about: "88.1 FM - CKDU is based at Dalhousie University in Halifax, Nova Scoita"}, // CKDU 88.1 Dalhousie

@@ -95,7 +95,7 @@ button {
 }
 
 .audio-about {
-  background-color: rgb(18, 18, 18);
+  background-color: rgb(8, 8, 8);
   color: rgb(181, 97, 97);
   display: flex;
   justify-content: center;
@@ -112,7 +112,7 @@ button {
 }
 
 .center-console {
-  height: 96vh;
+  height: 98vh;
   width: 615px;
   display: flex;
   flex-direction: column;

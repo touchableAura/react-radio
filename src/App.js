@@ -11,14 +11,12 @@ function App() {
   const [currentStation, setCurrentStation] =useState(null);
   return (
     <div className="container">
-      <Speaker />
       <div className="center-console">
-        <VideoScreen />
+      
         {/* <AudioControls currentStation={currentStation} /> */}
         <AudioPlayer setCurrentStation={setCurrentStation} />
-        
+      
       </div>
-      <Speaker />
     </div>
   );
 }

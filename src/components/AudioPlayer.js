@@ -7,6 +7,7 @@ const AudioPlayer = () => {
   const [currentStreamIndex, setCurrentStreamIndex] = useState(null);
   const [currentStation, setCurrentStation] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [areButtonsVisible, setAreButtonsVisible] = useState(false);
 
 
   const streams = [
@@ -38,37 +39,52 @@ const AudioPlayer = () => {
     } else {
       audioRef.current.src = stream.url;
       audioRef.current.play();
-      setCurrentStation(stream); // Set the entire stream object as the current station
+      setCurrentStation(stream);
       setIsPlaying(true);
       setCurrentStreamIndex(index);
     }
   };
 
+  const handleCollapseToggle = () => {
+    setAreButtonsVisible((prevVisible) => !prevVisible);
+  };
+
   return (
     <>
+      <button className="collapse-toggle" onClick={handleCollapseToggle}>
+        {areButtonsVisible ? "Collapse" : "Expand"}
+      </button>
       <div className="btns-container">
-        {streams.map((stream, index) => (
-          <button
-            key={stream.id}
-            onClick={() => handleButtonClick(stream, index)}
-            style={{
-              backgroundColor:
-                currentStreamIndex === index && isPlaying ? "darkred" : "black",
-              color: "white",
-              padding: "10px",
-            }}
-          >
-            {stream.title}
-          </button>
-        ))}
+        {areButtonsVisible && (
+          <>
+            {streams.map((stream, index) => (
+              <button
+                key={stream.id}
+                onClick={() => handleButtonClick(stream, index)}
+                style={{
+                  backgroundColor: "black",
+                  color:
+                    currentStreamIndex === index && isPlaying
+                      ? "rgb(181, 97, 97)"
+                      : "white",
+                  borderColor:
+                    currentStreamIndex === index && isPlaying
+                      ? "rgb(181, 97, 97)"
+                      : "white",
+                  padding: "10px",
+                }}
+              >
+                {stream.title}
+              </button>
+            ))}
+          </>
+        )}
         <audio ref={audioRef} />
       </div>
-      {/* Pass currentStation to AudioControls component */}
       <AudioControls
         currentStation={currentStation ? currentStation.title : null}
         isPlaying={isPlaying}
       />
-      {/* Pass currentStation to AudioAbout component */}
       {currentStation && <AudioAbout about={currentStation.about} />}
     </>
   );
